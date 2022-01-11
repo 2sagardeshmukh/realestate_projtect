@@ -19,6 +19,8 @@ public class Constants {
 	public static final String ADMIN_OPERATION_PAGE = "/admin_options";
 	public static final String ADMIN_LOGIN_PAGE = "/admin_login";
 	public static final String USER_PAYMENT_PAGE = "/PaymentPage";
+	public static final String USER_RECEIPT_PAGE = "/ReceiptPage";
+	
 	
 	public static final String USER_OPERATION_TESTING_PAGE = "/homepage1";
 
