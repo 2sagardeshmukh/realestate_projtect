@@ -84,6 +84,9 @@ public class MainController {
 		return "Payment";
 	}
 	
-	
+	@RequestMapping(value = Constants.USER_RECEIPT_PAGE)
+	public String Receipt(Model model) {
+		return "receipt";
+	}
 
 }

@@ -25,7 +25,7 @@ public class houseServiceImpl implements houseServices {
 		
 	}
 	@Override
-	public List<House> getAllEmployees() {
+	public List<House> getAllProperties() {
 		return houseRepository.findAll();
 	}
 

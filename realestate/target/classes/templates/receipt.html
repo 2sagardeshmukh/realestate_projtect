@@ -1,48 +1,110 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+<meta charset="ISO-8859-1">
+<title>Property Management System</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+	<style>
+	.customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.customers tr:nth-child(even){background-color: #f2f2f2;}
+
+.customers tr:hover {background-color: #ddd;}
+
+.customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+div {
+  border-radius: 5px;
+  background-color:bisque;
+  padding: 10px;
+  width:100%;
+  margin:auto auto auto;
+}
+.btn-group button {
+  background-color: blue; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right:medium; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+div.a {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  border: 3px solid red;
+}
+
+
+	</style>
 </head>
-<style>
-body {
-text-align: center;
-padding: 40px 0;
-background: #EBF0F5;
-}
-h1 {
-color: #88B04B;
-font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
-font-weight: 900;
-font-size: 40px;
-margin-bottom: 10px;
-}
-p {
-color: #404F5E;
-font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
-font-size:20px;
-margin: 0;
-}
-i {
-color: #9ABC66;
-font-size: 100px;
-line-height: 200px;
-margin-left:-15px;
-}
-.card {
-background: white;
-padding: 60px;
-border-radius: 4px;
-box-shadow: 0 2px 3px #C8D0D8;
-display: inline-block;
-margin: 0 auto;
-}
-</style>
 <body>
-<div class="card">
-<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
-<i class="checkmark">✓</i>
-</div>
-<h1>Success</h1>
-<button type="submit" class="btn btn-default" id="confirm-purchase" action="receipt">OK</button>
-</div>
+
+	<div class="container my-2">
+	<h1>Receipt</h1>
+		<table border="3"  class = "table table-striped table-responsive-md" >
+			<thead>
+				<tr>
+				    <th>Username</th>
+					<th>PropertyId</th>
+					<th>Address</th>
+					<th>Bedrooms</th>
+					<th>Bathrooms</th>
+					<th>Size_sqft</th>
+					<th>Price</th>
+					<th>contactNumber</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="soldhouse : ${listProducts}">
+				    <td th:text="${soldhouse.username}"></td>
+					<td th:text="${soldhouse.pid}"></td>
+					<td th:text="${soldhouse.address}"></td>
+					<td th:text="${soldhouse.bedrooms}"></td>
+					<td th:text="${soldhouse.bathrooms}"></td>
+					<td th:text="${soldhouse.size_sqft}"></td>
+					<td th:text="${soldhouse.price}"></td>
+					<td th:text="${soldhouse.ownercontactnumber}"></td>
+					
+				</td>
+			</tbody>
+		</table>
+		<a th:href="@{/homepage1}" class="btn btn-primary">Home</a>
+	</div>
 </body>
 </html>

@@ -74,7 +74,7 @@ div.a {
 <div style="background-color:aqua;width:100%;height:155px;border:orange;border-width:100%">
 <h3 style="text-align:center;color:darkorange">User Portal</h3>
 <h5 style="color:red;"><marquee direction="right" scrollmount="15">Check out your Dream House....!!!!</marquee></h5>
-<h5 style="text-align:right;color:deeppink;margin-top:0%">Welcome, <span th:text="${n}"></span></h5>
+<h5 style="text-align:right;color:deeppink;margin-top:0%">Welcome, <span th:text="${usern}"></span></h5>
 <form action="/" style="margin-left:92%">
 	<button style="margin-top:1%" class="btn btn-primary btn-sm mb-3" type="submit">Logout</button>
 	</form>
@@ -115,6 +115,12 @@ div.a {
 	</div>
 	
 	</div>
-	
+<script>
+var user1 = "${n}";
+sessionStorage.setItem('key1', user1);
+var usern = sessionStorage.getItem('key1');
+
+</script>
 </body>
+
 </html>

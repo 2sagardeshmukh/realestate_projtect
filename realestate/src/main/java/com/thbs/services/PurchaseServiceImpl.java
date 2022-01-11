@@ -50,6 +50,18 @@ public class PurchaseServiceImpl implements PurchaseService {
 		
 		
 	}
+
+
+	@Override
+	public Optional<SoldHouses> getASoldHouse(int pid) {
+		
+		  Optional<SoldHouses> list= soldhouses.findById(pid);
+		return list; 
+		}
+	}
+
+
+	
 	
 
-}
+

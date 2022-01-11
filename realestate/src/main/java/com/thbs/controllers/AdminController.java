@@ -48,7 +48,7 @@ public class AdminController {
 		if (searchUser.isPresent()) {
 			Admin userFromDb = searchUser.get();
 			if (a.getPassword().equals(userFromDb.getPassword())) {
-				List<House> listProducts = houseService.getAllEmployees();
+				List<House> listProducts = houseService.getAllProperties();
 				model.addAttribute("listProducts", listProducts);
 				final String adminId= a.getAdminid();
 				model.addAttribute("adminId", adminId);
@@ -70,7 +70,7 @@ public class AdminController {
 	 */
 	@GetMapping(value = Constants.ADMIN_OPERATION_TESTING_PAGE)
 	public String viewHomePage(@ModelAttribute("admin") Admin admin, Model model) {
-		List<House> listProducts = houseService.getAllEmployees();
+		List<House> listProducts = houseService.getAllProperties();
 		model.addAttribute("listProducts", listProducts);
 		String adminId = admin.getAdminid();
 		model.addAttribute("adminId", adminId);

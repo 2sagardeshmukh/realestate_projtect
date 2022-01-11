@@ -18,7 +18,7 @@ public interface houseServices {
 	 * 
 	 * @return
 	 */
-	List<House> getAllEmployees();
+	List<House> getAllProperties();
 
 	void saveEmployee(House h);
 

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.thbs.constantProperties.Constants;
 import com.thbs.models.House;
 import com.thbs.models.Purchase;
+import com.thbs.models.SoldHouses;
 import com.thbs.models.User;
 import com.thbs.repository.UserRepository;
 import com.thbs.services.PurchaseService;
@@ -49,7 +50,7 @@ public class UserController {
 		if (searchUser.isPresent()) {
 			User userFromDb = searchUser.get();
 			if (u.getPassword().equals(userFromDb.getPassword())) {
-				List<House> listProducts = houseService.getAllEmployees();
+				List<House> listProducts = houseService.getAllProperties();
 				model.addAttribute("listProducts", listProducts);
 				String n= u.getUsername();
 				model.addAttribute("n", n);
@@ -73,7 +74,7 @@ public class UserController {
 
 	@GetMapping(value =Constants.USER_OPERATION_TESTING_PAGE)
 	public String viewHomePage(@ModelAttribute("user") User user, Model model ) {
-		List<House> listProducts = houseService.getAllEmployees();
+		List<House> listProducts = houseService.getAllProperties();
 		model.addAttribute("listProducts", listProducts);
 		String n= user.getUsername();
 		model.addAttribute("n", n);
@@ -94,4 +95,15 @@ public class UserController {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
+	@RequestMapping(value="/getReceipt")
+	  public String getReceipt(@ModelAttribute("soldhouse") SoldHouses soldhouse ,Model model) {
+	  Optional<SoldHouses> listProducts = purchaseservice.getASoldHouse(soldhouse.getPid());
+	  if(listProducts.isPresent())
+	  {
+		  model.addAttribute("listProducts", listProducts.get());  
+	  }
+	  return "receipt";
+	  }
 }
